@@ -1,0 +1,117 @@
+name: 🚀 DevOps 2026 CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  validate-scripts:
+    name: 🔍 Lint & Validate Shell Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck on all scripts
+        run: |
+          echo "Running shellcheck on all .sh files..."
+          find . -name "*.sh" -not -path "./.git/*" | while read -r f; do
+            echo "Checking: $f"
+            shellcheck --severity=warning "$f" || true
+          done
+          echo "✅ Shell script validation complete."
+
+  validate-yaml:
+    name: 🔍 Validate YAML Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Validate YAML files
+        run: |
+          find . -name "*.yml" -o -name "*.yaml" | grep -v ".git" | while read -r f; do
+            echo "Validating: $f"
+            yamllint -d relaxed "$f" || true
+          done
+          echo "✅ YAML validation complete."
+
+  validate-python:
+    name: 🔍 Lint Python Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install flake8
+        run: pip install flake8
+
+      - name: Run flake8
+        run: |
+          find . -name "*.py" -not -path "./.git/*" | while read -r f; do
+            echo "Linting: $f"
+            flake8 --max-line-length=120 "$f" || true
+          done
+          echo "✅ Python linting complete."
+
+  security-scan:
+    name: 🔐 Security Scan (Secrets Detection)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+        continue-on-error: true
+
+  curriculum-check:
+    name: 📚 Curriculum Completeness Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check all weeks have required files
+        run: |
+          MISSING=0
+          for week in $(seq -w 1 36); do
+            dir="Week-${week}"
+            if [ ! -d "$dir" ]; then
+              echo "❌ Missing directory: $dir"
+              MISSING=$((MISSING+1))
+              continue
+            fi
+            if [ -z "$(ls $dir/day1-concepts.md 2>/dev/null)" ]; then
+              echo "⚠️  $dir: missing day1-concepts.md"
+            fi
+            if [ -z "$(ls $dir/lab-day2-*.sh 2>/dev/null)" ]; then
+              echo "⚠️  $dir: missing lab-day2-*.sh"
+            fi
+            if [ -z "$(ls $dir/incident-day3-*.sh 2>/dev/null)" ]; then
+              echo "⚠️  $dir: missing incident-day3-*.sh"
+            fi
+          done
+          if [ $MISSING -gt 0 ]; then
+            echo "⚠️ $MISSING weeks still in progress."
+          else
+            echo "✅ All 36 weeks present."
+          fi

@@ -1,0 +1,43 @@
+# ─── OS & Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# ─── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+dist/
+build/
+
+# ─── Terraform ────────────────────────────────────────────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+terraform.tfplan
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+*.tar
+
+# ─── Secrets & Keys ───────────────────────────────────────────────────────────
+*.pem
+*.key
+*.crt
+id_rsa
+id_ed25519
+*.p12
+.env.*
+!.env.example
+
+# ─── Logs & Temp ──────────────────────────────────────────────────────────────
+*.log
+/tmp/
