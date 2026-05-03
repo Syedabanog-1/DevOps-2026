@@ -1,23 +1,41 @@
-# Week 09 - Day 1: Python for DevOps
+# 🐍 Week 09 - Day 1: Python for DevOps
+
 ## 🎯 Overview
-This week covers **Python for DevOps** as part of the DevOps 2026 Job-Ready Track.
+Python is the glue of modern DevOps. Unlike Bash, Python provides robust error handling, data structures, and libraries for interacting with Cloud APIs, Kubernetes, and OS-level resources.
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Python for DevOps.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🚀 Why Python for DevOps?
+1. **Readability**: Easier to maintain complex logic than Bash.
+2. **Library Ecosystem**: `requests` (APIs), `os`/`subprocess` (CLI interaction), `argparse` (CLI tools).
+3. **Data Handling**: Native support for JSON, YAML, and CSV.
+4. **Cloud SDKs**: `boto3` (AWS), `azure-sdk-for-python`, `google-cloud-python`.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+## 🛠 Core Libraries to Master
+- **`os` & `sys`**: Interacting with the operating system and environment variables.
+- **`subprocess`**: Running shell commands and capturing their output safely.
+- **`argparse`**: Creating professional CLI tools with flags and help menus.
+- **`requests`**: Making HTTP calls to health endpoints or APIs.
+- **`json`**: Parsing and generating configuration data.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Python for DevOps."
-- "Write a bash script that automates a common Python for DevOps task."
-- "What monitoring metrics should I track for Python for DevOps in a production system?"
+## 📝 Key Reference Commands
+```python
+# Capturing shell output safely
+import subprocess
+result = subprocess.run(['df', '-h'], capture_output=True, text=True)
+print(result.stdout)
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Python for DevOps.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+# Reading an environment variable
+import os
+db_url = os.getenv('DATABASE_URL', 'localhost:5432')
+
+# Simple CLI parser
+import argparse
+parser = argparse.ArgumentParser(description='DevOps Tool')
+parser.add_argument('--force', action='store_true')
+args = parser.parse_args()
+```
+
+## 🧠 Best Practices
+- **Use Virtual Environments (`venv`)**: Avoid polluting system Python.
+- **Error Handling**: Use `try/except` blocks to prevent scripts from crashing silently.
+- **Exit Codes**: Always return `sys.exit(0)` for success or `sys.exit(1)` for failure.
+- **Shebang**: Use `#!/usr/bin/env python3` for portability.

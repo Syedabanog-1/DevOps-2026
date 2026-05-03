@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================
-# Week 09 - Day 2 Lab: Python for DevOps
+# Week 09 - Day 2 Lab: Python for DevOps (Automation)
 # DevOps 2026 Track
 # ============================================================
 set -euo pipefail
@@ -17,21 +17,65 @@ print_banner() {
 }
 
 run_lab() {
-  echo -e "${CYAN}[STEP 1]${RESET} Setting up lab environment in ${LAB_DIR}"
-  echo "Lab environment ready." > "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Environment ready."
+  echo -e "${CYAN}[STEP 1]${RESET} Creating Python Automation Script: ${BOLD}system_health.py${RESET}"
+  
+  cat << 'EOF' > "${LAB_DIR}/system_health.py"
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+import json
+from datetime import datetime
 
-  echo -e "${CYAN}[STEP 2]${RESET} Executing core lab tasks for: Python for DevOps"
-  echo "Core lab tasks executed at $(date)" >> "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Core tasks complete."
+def get_disk_usage():
+    try:
+        res = subprocess.run(['df', '-h', '/'], capture_output=True, text=True, check=True)
+        return res.stdout.split('\n')[1].split()[4]
+    except Exception:
+        return "Unknown"
 
-  echo -e "${CYAN}[STEP 3]${RESET} Verifying lab outcomes"
-  echo -e "  ${GREEN}✔${RESET} All assertions passed."
+def get_load_avg():
+    return os.getloadavg()[0]
+
+def main():
+    report = {
+        "timestamp": datetime.now().isoformat(),
+        "hostname": os.uname().nodename,
+        "disk_usage": get_disk_usage(),
+        "load_avg_1m": get_load_avg(),
+        "status": "HEALTHY" if get_load_avg() < 2.0 else "WARNING"
+    }
+    
+    print(json.dumps(report, indent=2))
+    
+    if report["status"] == "WARNING":
+        sys.exit(1)
+    sys.exit(0)
+
+if __name__ == "__main__":
+    main()
+EOF
+  chmod +x "${LAB_DIR}/system_health.py"
+  echo -e "  ${GREEN}✔${RESET} Script created and marked executable."
+
+  echo -e "\n${CYAN}[STEP 2]${RESET} Executing Python Automation Script"
+  python3 "${LAB_DIR}/system_health.py" > "${LAB_DIR}/health_report.json"
+  echo -e "  ${GREEN}✔${RESET} Execution complete. Report saved to ${LAB_DIR}/health_report.json"
+
+  echo -e "\n${CYAN}[STEP 3]${RESET} Verifying Report Contents"
+  if grep -q "status" "${LAB_DIR}/health_report.json"; then
+    echo -e "  ${GREEN}✔${RESET} Valid JSON report generated."
+    cat "${LAB_DIR}/health_report.json" | grep "status"
+  else
+    echo -e "  ${RED}✘${RESET} Failed to generate valid report."
+    exit 1
+  fi
 }
 
 main() {
   print_banner
   run_lab
   echo -e "\n${GREEN}${BOLD}Week 09 Day 2 Lab — COMPLETE ✔${RESET}"
+  echo -e "Artifacts generated in: ${BOLD}${LAB_DIR}${RESET}"
 }
 main "$@"
