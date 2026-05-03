@@ -47,10 +47,10 @@ export const phases: Phase[] = [
     color: "from-yellow-500 to-orange-500",
     icon: "🐍",
     weeks: [
-      { week: 9,  topic: "Python for DevOps", lab: "CLI tools, file I/O, subprocess", incident: "Broken Python Script Triage", status: "active" },
-      { week: 10, topic: "YAML Deep Dive", lab: "Anchors, multi-doc, validation", incident: "Malformed YAML Crash", status: "pending" },
-      { week: 11, topic: "Bash + Python Automation", lab: "Health-check scripts, argparse", incident: "Silent Script Failure", status: "pending" },
-      { week: 12, topic: "Cron Jobs & Scheduling", lab: "Crontab, systemd timers", incident: "Missed Cron, Disk Fills Up", status: "pending" },
+      { week: 9,  topic: "Python for DevOps", lab: "CLI tools, file I/O, subprocess", incident: "Broken Python Script Triage", status: "done" },
+      { week: 10, topic: "YAML Deep Dive", lab: "Anchors, multi-doc, validation", incident: "Malformed YAML Crash", status: "done" },
+      { week: 11, topic: "Bash + Python Automation", lab: "Health-check scripts, argparse", incident: "Silent Script Failure", status: "done" },
+      { week: 12, topic: "Cron Jobs & Scheduling", lab: "Crontab, systemd timers", incident: "Missed Cron, Disk Fills Up", status: "done" },
     ],
   },
   {
@@ -59,10 +59,10 @@ export const phases: Phase[] = [
     color: "from-cyan-500 to-blue-500",
     icon: "🐳",
     weeks: [
-      { week: 13, topic: "Docker Fundamentals", lab: "run, exec, inspect, logs", incident: "Container Exits Immediately", status: "pending" },
-      { week: 14, topic: "Dockerfile & Image Building", lab: "Multi-stage builds, layers", incident: "Image Build Failure Triage", status: "pending" },
-      { week: 15, topic: "Docker Compose Multi-Container", lab: "Multi-container apps", incident: "Service Dependency Crash", status: "pending" },
-      { week: 16, topic: "Container Security & Registry", lab: "Trivy scan, ACR push", incident: "Vulnerable Image Blocked", status: "pending" },
+      { week: 13, topic: "Docker Fundamentals", lab: "run, exec, inspect, logs", incident: "Container Exits Immediately", status: "done" },
+      { week: 14, topic: "Dockerfile & Image Building", lab: "Multi-stage builds, layers", incident: "Image Build Failure Triage", status: "done" },
+      { week: 15, topic: "Docker Compose Multi-Container", lab: "Multi-container apps", incident: "Service Dependency Crash", status: "done" },
+      { week: 16, topic: "Container Security & Registry", lab: "Trivy scan, ACR push", incident: "Vulnerable Image Blocked", status: "done" },
     ],
   },
   {
@@ -71,10 +71,10 @@ export const phases: Phase[] = [
     color: "from-violet-500 to-purple-600",
     icon: "☸️",
     weeks: [
-      { week: 17, topic: "K8s Architecture & Pods", lab: "kubectl run, exec, logs", incident: "CrashLoopBackOff", status: "pending" },
-      { week: 18, topic: "Deployments, Services & Ingress", lab: "Rolling updates, rollback", incident: "ImagePullBackOff", status: "pending" },
-      { week: 19, topic: "ConfigMaps, Secrets & Volumes", lab: "Mount secrets, PVC", incident: "Missing Secret Crash", status: "pending" },
-      { week: 20, topic: "Helm + K8s Incident Response", lab: "Helm install, upgrade, rollback", incident: "OOMKilled Pod", status: "pending" },
+      { week: 17, topic: "K8s Architecture & Pods", lab: "kubectl run, exec, logs", incident: "CrashLoopBackOff", status: "done" },
+      { week: 18, topic: "Deployments, Services & Ingress", lab: "Rolling updates, rollback", incident: "ImagePullBackOff", status: "done" },
+      { week: 19, topic: "ConfigMaps, Secrets & Volumes", lab: "Mount secrets, PVC", incident: "Missing Secret Crash", status: "done" },
+      { week: 20, topic: "Helm + K8s Incident Response", lab: "Helm install, upgrade, rollback", incident: "OOMKilled Pod", status: "done" },
     ],
   },
   {
@@ -83,10 +83,10 @@ export const phases: Phase[] = [
     color: "from-purple-500 to-pink-600",
     icon: "🏗️",
     weeks: [
-      { week: 21, topic: "Terraform Fundamentals", lab: "init, plan, apply, destroy", incident: "State Lock / Drift", status: "pending" },
-      { week: 22, topic: "Azure Provider & Resources", lab: "VMs, VNet, NSG provisioning", incident: "Resource Destroyed in Plan", status: "pending" },
-      { week: 23, topic: "Modules & Remote State", lab: "Module calls, Azure Blob backend", incident: "Corrupted State File", status: "pending" },
-      { week: 24, topic: "Terraform in CI/CD", lab: "Plan in PR, apply on merge", incident: "Broken Pipeline, Manual State Fix", status: "pending" },
+      { week: 21, topic: "Terraform Fundamentals", lab: "init, plan, apply, destroy", incident: "State Lock / Drift", status: "done" },
+      { week: 22, topic: "Azure Provider & Resources", lab: "VMs, VNet, NSG provisioning", incident: "Resource Destroyed in Plan", status: "done" },
+      { week: 23, topic: "Modules & Remote State", lab: "Module calls, Azure Blob backend", incident: "Corrupted State File", status: "done" },
+      { week: 24, topic: "Terraform in CI/CD", lab: "Plan in PR, apply on merge", incident: "Broken Pipeline, Manual State Fix", status: "done" },
     ],
   },
   {
@@ -95,10 +95,10 @@ export const phases: Phase[] = [
     color: "from-rose-500 to-red-600",
     icon: "🚀",
     weeks: [
-      { week: 25, topic: "GitHub Actions Fundamentals", lab: "Workflows, matrix builds", incident: "Flaky Test Blocking Deploy", status: "pending" },
-      { week: 26, topic: "Azure DevOps Pipelines", lab: "YAML pipelines, stages", incident: "Pipeline Approval Gate Failure", status: "pending" },
-      { week: 27, topic: "Multi-Stage Pipelines", lab: "Build → Test → Deploy", incident: "Failed Rollback Recovery", status: "pending" },
-      { week: 28, topic: "Pipeline Security & Artifacts", lab: "SAST, signing, caching", incident: "Secret Exposed in Logs", status: "pending" },
+      { week: 25, topic: "GitHub Actions Fundamentals", lab: "Workflows, matrix builds", incident: "Flaky Test Blocking Deploy", status: "done" },
+      { week: 26, topic: "Azure DevOps Pipelines", lab: "YAML pipelines, stages", incident: "Pipeline Approval Gate Failure", status: "done" },
+      { week: 27, topic: "Multi-Stage Pipelines", lab: "Build → Test → Deploy", incident: "Failed Rollback Recovery", status: "done" },
+      { week: 28, topic: "Pipeline Security & Artifacts", lab: "SAST, signing, caching", incident: "Secret Exposed in Logs", status: "done" },
     ],
   },
   {
@@ -107,10 +107,10 @@ export const phases: Phase[] = [
     color: "from-teal-500 to-green-600",
     icon: "📊",
     weeks: [
-      { week: 29, topic: "Prometheus & Metrics", lab: "Exporters, PromQL, scrape", incident: "Metrics Scrape Target Down", status: "pending" },
-      { week: 30, topic: "Grafana Dashboards", lab: "Panels, datasources, alerts", incident: "Silent Alert (Misconfigured Rule)", status: "pending" },
-      { week: 31, topic: "Log Aggregation with Loki", lab: "Loki, Promtail, log queries", incident: "Log Pipeline Failure", status: "pending" },
-      { week: 32, topic: "Alerting & On-Call", lab: "AlertManager, PagerDuty", incident: "Alert Storm Suppression", status: "pending" },
+      { week: 29, topic: "Prometheus & Metrics", lab: "Exporters, PromQL, scrape", incident: "Metrics Scrape Target Down", status: "done" },
+      { week: 30, topic: "Grafana Dashboards", lab: "Panels, datasources, alerts", incident: "Silent Alert (Misconfigured Rule)", status: "done" },
+      { week: 31, topic: "Log Aggregation with Loki", lab: "Loki, Promtail, log queries", incident: "Log Pipeline Failure", status: "done" },
+      { week: 32, topic: "Alerting & On-Call", lab: "AlertManager, PagerDuty", incident: "Alert Storm Suppression", status: "done" },
     ],
   },
   {
@@ -119,10 +119,10 @@ export const phases: Phase[] = [
     color: "from-amber-500 to-yellow-500",
     icon: "🔐",
     weeks: [
-      { week: 33, topic: "DevSecOps & Scanning", lab: "SAST (Semgrep), DAST, Trivy", incident: "Vulnerable Dependency in Prod", status: "pending" },
-      { week: 34, topic: "Secrets Management", lab: "Azure Key Vault, OIDC auth", incident: "Hardcoded Secret in Code", status: "pending" },
-      { week: 35, topic: "SRE Principles & SLOs", lab: "SLI/SLO/SLA, error budgets", incident: "SLO Breach Post-Mortem", status: "pending" },
-      { week: 36, topic: "Capstone Project", lab: "Full-stack IaC + CI/CD + Monitoring", incident: "Multi-Service Outage RCA", status: "pending" },
+      { week: 33, topic: "DevSecOps & Scanning", lab: "SAST (Semgrep), DAST, Trivy", incident: "Vulnerable Dependency in Prod", status: "done" },
+      { week: 34, topic: "Secrets Management", lab: "Azure Key Vault, OIDC auth", incident: "Hardcoded Secret in Code", status: "done" },
+      { week: 35, topic: "SRE Principles & SLOs", lab: "SLI/SLO/SLA, error budgets", incident: "SLO Breach Post-Mortem", status: "done" },
+      { week: 36, topic: "Capstone Project", lab: "Full-stack IaC + CI/CD + Monitoring", incident: "Multi-Service Outage RCA", status: "done" },
     ],
   },
 ];
