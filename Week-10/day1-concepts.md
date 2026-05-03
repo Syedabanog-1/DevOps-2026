@@ -1,23 +1,29 @@
-# Week 10 - Day 1: YAML Deep Dive
-## 🎯 Overview
-This week covers **YAML Deep Dive** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 10 - Day 1: YAML for Everyone
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind YAML Deep Dive.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is YAML?
+YAML (Yet Another Markup Language) is just a way to write information that both people and computers can understand. Think of it like a **very organized grocery list**.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+DevOps engineers use YAML to tell tools like Kubernetes or GitHub Actions exactly what to do.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for YAML Deep Dive."
-- "Write a bash script that automates a common YAML Deep Dive task."
-- "What monitoring metrics should I track for YAML Deep Dive in a production system?"
+## 💡 The Basic Rules
+YAML follows simple rules to keep things tidy:
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to YAML Deep Dive.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+1. **Spaces Matter**: You use spaces (usually 2) to show that one thing belongs to another. **Never use tabs!**
+2. **Key: Value**: You write a "label" followed by a "value".
+   - Example: `fruit: Apple`
+3. **Lists**: Use a dash `-` for lists.
+   - Example:
+     ```yaml
+     fruits:
+       - Apple
+       - Banana
+       - Orange
+     ```
+
+## 🛠 Why do we care?
+Most DevOps tools use YAML files as "Instruction Manuals". If you have a small error in your YAML (like a missing space), the computer won't understand the instructions and will stop working.
+
+## 🧠 Best Practice
+- **Keep it Simple**: Don't make the files too long.
+- **Use a Validator**: Use tools to check your work before you save it.
+- **Spaces, not Tabs**: This is the #1 mistake people make!

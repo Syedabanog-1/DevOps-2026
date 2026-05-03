@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================
-# Week 10 - Day 2 Lab: YAML Deep Dive
+# Week 10 - Day 2 Lab: Learning YAML
 # DevOps 2026 Track
 # ============================================================
 set -euo pipefail
@@ -11,22 +11,39 @@ mkdir -p "${LAB_DIR}"
 print_banner() {
   echo -e "${BOLD}${CYAN}"
   echo "=========================================================="
-  echo "  DevOps 2026 | Week 10 | Day 2 Lab: YAML Deep Dive"
+  echo "  DevOps 2026 | Week 10 | Day 2 Lab: My First YAML"
   echo "=========================================================="
   echo -e "${RESET}"
 }
 
 run_lab() {
-  echo -e "${CYAN}[STEP 1]${RESET} Setting up lab environment in ${LAB_DIR}"
-  echo "Lab environment ready." > "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Environment ready."
+  echo -e "${CYAN}[STEP 1]${RESET} Creating a simple YAML file: ${BOLD}config.yaml${RESET}"
+  
+  cat << 'EOF' > "${LAB_DIR}/config.yaml"
+# This is my first YAML configuration
+app_name: "My Awesome App"
+version: 1.0.0
+features:
+  - dark_mode
+  - notifications
+  - auto_save
+owner:
+  name: "Syeda Gulzar Bano"
+  role: "DevOps Engineer"
+EOF
+  echo -e "  ${GREEN}✔${RESET} File created."
 
-  echo -e "${CYAN}[STEP 2]${RESET} Executing core lab tasks for: YAML Deep Dive"
-  echo "Core lab tasks executed at $(date)" >> "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Core tasks complete."
+  echo -e "\n${CYAN}[STEP 2]${RESET} Reading the YAML data"
+  echo -e "${BOLD}File Contents:${RESET}"
+  cat "${LAB_DIR}/config.yaml"
 
-  echo -e "${CYAN}[STEP 3]${RESET} Verifying lab outcomes"
-  echo -e "  ${GREEN}✔${RESET} All assertions passed."
+  echo -e "\n${CYAN}[STEP 3]${RESET} Checking if it's correct (Validation)"
+  # Using Python to check if it's valid YAML (simplest way without extra installs)
+  if python3 -c 'import yaml, sys; yaml.safe_load(sys.stdin)' < "${LAB_DIR}/config.yaml" 2>/dev/null; then
+    echo -e "  ${GREEN}✔${RESET} The YAML is perfect!"
+  else
+    echo -e "  ${RED}✘${RESET} Something is wrong with the YAML syntax."
+  fi
 }
 
 main() {
