@@ -122,14 +122,24 @@ export default function Dashboard() {
       <nav className="topbar">
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 24px', height: 56,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div className="flex items-center gap-3">
-            <div className="dot dot-active" />
-            <span className="mono text-xs" style={{ color: 'var(--text-dim)' }}>DEVOPS_2026</span>
-            <span style={{ color: 'var(--border-hover)' }}>|</span>
-            <span className="mono text-xs" style={{ color: 'var(--text-label)' }}>track@syedabanog-1</span>
+          <div className="flex items-center gap-4">
+            {/* Custom SVG Logo */}
+            <div className="logo-container">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--blue)" fillOpacity="0.8"/>
+                <path d="M2 17L12 22L22 17" stroke="var(--blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="var(--blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
+              </svg>
+              <span className="logo-text">BANO<span style={{color:'var(--blue)'}}>_</span>DEVOPS</span>
+            </div>
+            <div className="sep-v" />
+            <div className="flex items-center gap-3">
+              <div className="dot dot-active" />
+              <span className="mono text-xs" style={{ color: 'var(--text-dim)' }}>SYSTEM_UP</span>
+            </div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="mono text-xs" style={{ color: 'var(--text-label)' }}>{dateStr}</span>
+            <span className="mono text-xs hide-mobile" style={{ color: 'var(--text-label)' }}>{dateStr}</span>
             <a href={githubUrl} target="_blank" rel="noreferrer"
               className="pill pill-active" style={{ textDecoration:'none', padding: '4px 12px' }}>
               <span className="dot dot-active" style={{width:5,height:5}} /> GITHUB
@@ -143,44 +153,59 @@ export default function Dashboard() {
       <main style={{ position:'relative', zIndex:1, paddingTop: 56 }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '60px 24px 100px' }}>
 
-          {/* ── HERO ── */}
-          <section style={{ marginBottom: 72 }}>
-            {/* Label */}
-            <div className="afu" style={{ marginBottom: 20 }}>
-              <span className="pill pill-active" style={{ padding: '5px 14px', fontSize: 11 }}>
-                <span className="dot dot-active" /> 36-Week Job-Ready DevOps Engineering Track
-              </span>
+          <section style={{ marginBottom: 80, display: 'flex', alignItems: 'center', gap: 60, flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: 300 }}>
+              {/* Label */}
+              <div className="afu" style={{ marginBottom: 24 }}>
+                <span className="pill pill-active" style={{ padding: '6px 16px', fontSize: 11, borderRadius: 100 }}>
+                  <span className="dot dot-active" /> 36-Week Job-Ready DevOps Engineering Track
+                </span>
+              </div>
+
+              {/* Name */}
+              <h1 className="afu d1 shimmer-text"
+                style={{ fontSize: 'clamp(3rem,8vw,6.5rem)', fontWeight: 900, letterSpacing: '-0.04em',
+                  lineHeight: 1.0, marginBottom: 24 }}>
+                Syeda Gulzar Bano
+              </h1>
+
+              <p className="afu d2" style={{ fontSize: 18, color: 'var(--text-dim)', maxWidth: 640,
+                lineHeight: 1.7, marginBottom: 40, fontWeight: 400 }}>
+                Autonomous DevOps Architect — mastering Linux, Kubernetes, Terraform, CI/CD, and SRE.
+                Every week: theory, hands-on lab, live incident simulation, formal RCA.
+              </p>
+
+              {/* CTA Row */}
+              <div className="afu d3 flex items-center gap-4 flex-wrap" style={{ marginBottom: 0 }}>
+                <a href={githubUrl} target="_blank" rel="noreferrer"
+                  className="glass lift"
+                  style={{ padding: '12px 28px', borderRadius: 14, textDecoration: 'none',
+                    display: 'inline-flex', alignItems: 'center', gap: 12, fontWeight: 700, fontSize: 15 }}>
+                  <svg style={{width:20,height:20}} fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  Source Code
+                </a>
+                <div className="terminal" style={{ padding: '10px 20px', borderRadius: 12, display:'inline-flex', alignItems:'center', gap:8 }}>
+                  <span className="term-green">$</span>
+                  <span className="term-dim">wsl bash</span>
+                  <span className="term-blue"> Week-09/lab-day2-python.sh</span>
+                  <span className="cursor" />
+                </div>
+              </div>
             </div>
 
-            {/* Name */}
-            <h1 className="afu d1 shimmer-text"
-              style={{ fontSize: 'clamp(3rem,8vw,6.5rem)', fontWeight: 900, letterSpacing: '-0.04em',
-                lineHeight: 1.0, marginBottom: 20 }}>
-              Syeda Gulzar Bano
-            </h1>
-
-            <p className="afu d2" style={{ fontSize: 18, color: 'var(--text-dim)', maxWidth: 640,
-              lineHeight: 1.7, marginBottom: 40, fontWeight: 400 }}>
-              Autonomous DevOps Architect — mastering Linux, Kubernetes, Terraform, CI/CD, and SRE.
-              Every week: theory, hands-on lab, live incident simulation, formal RCA.
-            </p>
-
-            {/* CTA Row */}
-            <div className="afu d3 flex items-center gap-4 flex-wrap" style={{ marginBottom: 0 }}>
-              <a href={githubUrl} target="_blank" rel="noreferrer"
-                className="glass lift"
-                style={{ padding: '12px 24px', borderRadius: 12, textDecoration: 'none',
-                  display: 'inline-flex', alignItems: 'center', gap: 10, fontWeight: 700, fontSize: 14 }}>
-                <svg style={{width:18,height:18}} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                View Repository
-              </a>
-              <div className="terminal" style={{ padding: '8px 16px', borderRadius: 10, display:'inline-flex', alignItems:'center', gap:6 }}>
-                <span className="term-green">$</span>
-                <span className="term-dim">wsl bash</span>
-                <span className="term-blue"> Week-09/lab-day2-python.sh</span>
-                <span className="cursor" />
+            {/* Avatar Section */}
+            <div className="afu d2 avatar-container">
+              <div className="avatar-glow" />
+              <img 
+                src="https://github.com/Syedabanog-1.png" 
+                alt="Syeda Gulzar Bano" 
+                className="avatar-img"
+              />
+              <div className="avatar-status">
+                <div className="dot dot-active" style={{width:10,height:10}} />
+                <span>ACTIVE</span>
               </div>
             </div>
           </section>
@@ -241,6 +266,33 @@ export default function Dashboard() {
                 <p><span className="term-dim">user</span>  <span className="term-green">Syedabanog-1</span></p>
                 <p><span className="term-dim">files</span> <span className="term-amber">108 scripts</span></p>
                 <p><span className="term-dim">ci</span>    <span className="term-green">✓ passing</span></p>
+              </div>
+            </div>
+          </section>
+
+          {/* ── LIVE ACTIVITY FEED ── */}
+          <section className="afu d7" style={{ marginBottom: 80 }}>
+            <div className="glass gradient-border" style={{ padding: '24px' }}>
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="dot dot-active" />
+                  <h2 className="mono text-xs font-bold" style={{ letterSpacing: '.1em' }}>LIVE_ACTIVITY_FEED</h2>
+                </div>
+                <span className="mono text-xs" style={{ color: 'var(--text-ghost)' }}>v1.4.2-stable</span>
+              </div>
+              <div className="activity-grid">
+                {[
+                  { time: '14:22', event: 'GIT_PUSH', detail: 'feat: Week 08 merge conflict RCA', status: 'success' },
+                  { time: '12:05', event: 'WSL_EXEC', detail: 'lab-day2-python.sh — PASSED', status: 'success' },
+                  { time: '09:40', event: 'CI_BUILD', detail: 'pipeline #882: shellcheck pass', status: 'success' },
+                  { time: 'Yesterday', event: 'DEPLOY', detail: 'Vercel production sync complete', status: 'success' }
+                ].map((item, idx) => (
+                  <div key={idx} className="activity-item">
+                    <span className="mono text-ghost" style={{ fontSize: 10 }}>{item.time}</span>
+                    <span className="pill pill-done" style={{ fontSize: 9, padding: '2px 8px' }}>{item.event}</span>
+                    <span className="mono text-dim" style={{ fontSize: 11 }}>{item.detail}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

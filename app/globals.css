@@ -39,6 +39,11 @@
   --amber-glow: rgba(245,158,11,0.18);
   --red: #ef4444;
 
+  /* Additional Decorative */
+  --pa: var(--blue);
+  --pa-glow: rgba(59,130,246,0.3);
+  --pa-subtle: rgba(59,130,246,0.1);
+
   /* Topbar */
   --topbar-bg: rgba(13,15,20,0.78);
 
@@ -89,6 +94,11 @@
   --amber: #d97706;
   --amber-glow: rgba(217,119,6,0.14);
   --red: #dc2626;
+
+  /* Additional Decorative */
+  --pa: var(--blue);
+  --pa-glow: rgba(37,99,235,0.15);
+  --pa-subtle: rgba(37,99,235,0.05);
 
   /* Topbar */
   --topbar-bg: rgba(245,246,248,0.82);
@@ -167,6 +177,90 @@ body {
   33%  { transform: translate(30px, -20px) scale(1.05); }
   66%  { transform: translate(-20px, 30px) scale(0.97); }
   100% { transform: translate(15px, 15px) scale(1.02); }
+}
+
+/* Extra decorative orbs for world-class depth */
+.orb-4 { width: 400px; height: 400px; background: var(--blue-glow); top: 10%; right: -100px; opacity: 0.05; animation-delay: -2s; }
+.orb-5 { width: 300px; height: 300px; background: var(--purple-glow); bottom: 10%; left: -50px; opacity: 0.05; animation-delay: -5s; }
+
+/* ── Topbar Enhancements ────────────── */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: default;
+}
+.logo-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.sep-v {
+  width: 1px;
+  height: 16px;
+  background: var(--border-subtle);
+  margin: 0 4px;
+}
+@media (max-width: 640px) {
+  .hide-mobile { display: none; }
+}
+
+/* ── Hero Avatar ─────────────────────── */
+.avatar-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-img {
+  width: 240px;
+  height: 240px;
+  border-radius: 60px;
+  object-fit: cover;
+  z-index: 2;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+.avatar-container:hover .avatar-img {
+  transform: scale(1.05) rotate(2deg);
+}
+.avatar-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: var(--pa);
+  filter: blur(80px);
+  opacity: 0.3;
+  border-radius: 50%;
+  animation: pulse-avatar 4s infinite ease-in-out;
+}
+.avatar-status {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@keyframes pulse-avatar {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.4; }
 }
 
 /* Grid overlay — adapts automatically via data-theme */
@@ -409,6 +503,26 @@ body {
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s linear infinite;
+}
+
+/* ── Live Activity Feed ─────────────── */
+.activity-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.activity-item {
+  display: grid;
+  grid-template-columns: 80px 100px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.activity-item:last-child { border-bottom: none; }
+@media (max-width: 768px) {
+  .activity-item { grid-template-columns: 60px 1fr; }
+  .activity-item .pill { display: none; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
