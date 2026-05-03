@@ -1,23 +1,19 @@
-# Week 36 - Day 1: Capstone Project Full Stack
-## 🎯 Overview
-This week covers **Capstone Project Full Stack** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 36 - Day 1: Capstone Project Full Stack
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Capstone Project Full Stack.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is it?
+Bringing everything together: IaC, CI/CD, Kubernetes, and Monitoring into a single production-grade project.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+**Analogy:** Think of it like **The Final Exam - Building the factory**.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Capstone Project Full Stack."
-- "Write a bash script that automates a common Capstone Project Full Stack task."
-- "What monitoring metrics should I track for Capstone Project Full Stack in a production system?"
+## 💡 Why do we care?
+In modern DevOps, everything must be automated, scalable, and reliable. Mastering Capstone Project Full Stack allows you to build systems that work without human intervention and scale globally.
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Capstone Project Full Stack.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+## 🛠 Basic Concepts
+- **Automation**: Let the computer do the repetitive work.
+- **Reliability**: If it breaks, it should recover automatically.
+- **Traceability**: You should always know *what* changed, *when*, and *why*.
+
+## 🧠 Best Practices
+- Keep it simple and readable.
+- Always test locally before deploying to production.
+- Document your configurations clearly.

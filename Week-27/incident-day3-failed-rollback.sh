@@ -2,77 +2,53 @@
 # ============================================================
 # Week 27 - Day 3 Incident: Multi-Stage Pipelines
 # DevOps 2026 Track
-# Scenario: failed-rollback — diagnose and remediate
+# Scenario: failed-rollback
 # ============================================================
 set -euo pipefail
-RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
-LAB_DIR="/tmp/devops2026-week27-incident"
-RCA_FILE="${LAB_DIR}/RCA-week27-failed-rollback.md"
-mkdir -p "${LAB_DIR}"
+RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
+INCIDENT_DIR="/tmp/devops2026-week27-incident"
+mkdir -p "${INCIDENT_DIR}"
 
 print_banner() {
-  echo -e "${RED}${BOLD}"
+  echo -e "${BOLD}${RED}"
   echo "=========================================================="
-  echo "  INCIDENT SIM | Week 27 | failed-rollback"
+  echo "  INCIDENT SIMULATION | Week 27 | failed-rollback"
   echo "=========================================================="
   echo -e "${RESET}"
 }
 
 simulate_incident() {
-  echo -e "${RED}[INCIDENT]${RESET} Simulating failure: failed-rollback"
-  echo "Simulated failure at $(date)" > "${LAB_DIR}/failure.log"
-  echo -e "  Application is down. Alert triggered."
-}
+  echo -e "${CYAN}[1/2]${RESET} Simulating catastrophic failure..."
+  
+  echo "FATAL: failed-rollback encountered in Multi-Stage Pipelines module." > "${INCIDENT_DIR}/error.log"
+  echo -e "${RED}${BOLD}CRASH DETECTED!${RESET}"
+  cat "${INCIDENT_DIR}/error.log"
+  
+  echo -e "\n${CYAN}[2/2]${RESET} Generating Root Cause Analysis (RCA)..."
+  cat << EOF > "${INCIDENT_DIR}/RCA-$(date +%Y%m%d).md"
+# Root Cause Analysis (RCA) - Multi-Stage Pipelines
 
-perform_rca() {
-  echo -e "\n${YELLOW}[RCA]${RESET} Investigating root cause..."
-  echo -e "  ${CYAN}[CHECK 1]${RESET} Reviewing logs and system state."
-  echo -e "  ${CYAN}[CHECK 2]${RESET} Identifying the root cause component."
-  echo -e "  Conclusion: Root cause identified for scenario: failed-rollback"
-}
+## 📅 Date: $(date)
+## 📉 Incident: failed-rollback
 
-apply_fix() {
-  echo -e "\n${GREEN}[FIX]${RESET} Applying remediation..."
-  echo "Remediation applied at $(date)" >> "${LAB_DIR}/failure.log"
-  echo -e "  ${GREEN}SUCCESS:${RESET} System restored."
-}
+## 🔍 What happened?
+During standard operations of Multi-Stage Pipelines, an unexpected issue 'failed-rollback' caused the pipeline to halt.
 
-generate_rca_doc() {
-  cat > "${RCA_FILE}" <<RCADOC
-# Incident RCA: Multi-Stage Pipelines
-## Week 27 Day 3 | DevOps 2026 Track
+## 🛠 How we fixed it
+1. Reviewed the error logs in \`/tmp\`.
+2. Re-applied the configuration using standard DevOps recovery playbooks.
+3. Verified the system was stable using health checks.
 
-**Date:** $(date '+%Y-%m-%d %H:%M:%S')
-**Incident:** failed-rollback
-**Severity:** High
-**Status:** RESOLVED
+## 🧠 Lesson Learned
+Always monitor Multi-Stage Pipelines metrics to proactively catch failed-rollback before it affects end users.
+EOF
 
-## Incident Summary
-A production failure occurred related to: failed-rollback.
-This is a simulated incident to train engineers to identify and remediate common Multi-Stage Pipelines failures.
-
-## Root Cause
-The failure was triggered by a misconfiguration or a missing dependency in the Multi-Stage Pipelines layer.
-
-## Resolution
-Standard remediation steps were applied:
-1. Identified the failure point via log analysis.
-2. Applied the targeted fix.
-3. Verified system recovery.
-
-## Prevention
-- Automate monitoring and alerting for this class of failure.
-- Add this scenario to the runbook and incident response playbook.
-RCADOC
-  echo -e "\n  ${GREEN}✔${RESET} RCA saved: ${RCA_FILE}"
+  echo -e "\n${GREEN}${BOLD}Incident Simulated and Remediated!${RESET}"
+  echo -e "Review your RCA report in: ${BOLD}${INCIDENT_DIR}${RESET}"
 }
 
 main() {
   print_banner
   simulate_incident
-  perform_rca
-  apply_fix
-  generate_rca_doc
-  echo -e "\n${GREEN}${BOLD}  INCIDENT RESOLVED | Week 27 Day 3 — COMPLETE${RESET}"
 }
 main "$@"

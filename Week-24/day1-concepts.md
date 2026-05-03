@@ -1,23 +1,19 @@
-# Week 24 - Day 1: Terraform in CICD
-## 🎯 Overview
-This week covers **Terraform in CICD** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 24 - Day 1: Terraform in CICD
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Terraform in CICD.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is it?
+Running Terraform inside CI/CD ensures infrastructure changes are tested and approved before being applied.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+**Analogy:** Think of it like **Automated building inspectors**.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Terraform in CICD."
-- "Write a bash script that automates a common Terraform in CICD task."
-- "What monitoring metrics should I track for Terraform in CICD in a production system?"
+## 💡 Why do we care?
+In modern DevOps, everything must be automated, scalable, and reliable. Mastering Terraform in CICD allows you to build systems that work without human intervention and scale globally.
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Terraform in CICD.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+## 🛠 Basic Concepts
+- **Automation**: Let the computer do the repetitive work.
+- **Reliability**: If it breaks, it should recover automatically.
+- **Traceability**: You should always know *what* changed, *when*, and *why*.
+
+## 🧠 Best Practices
+- Keep it simple and readable.
+- Always test locally before deploying to production.
+- Document your configurations clearly.

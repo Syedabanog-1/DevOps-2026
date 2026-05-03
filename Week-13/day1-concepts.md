@@ -1,23 +1,19 @@
-# Week 13 - Day 1: Docker Fundamentals
-## 🎯 Overview
-This week covers **Docker Fundamentals** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 13 - Day 1: Docker Fundamentals
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Docker Fundamentals.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is it?
+Docker packs your app and everything it needs into a standardized container, so it runs identically on any computer.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+**Analogy:** Think of it like **Shipping containers for software**.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Docker Fundamentals."
-- "Write a bash script that automates a common Docker Fundamentals task."
-- "What monitoring metrics should I track for Docker Fundamentals in a production system?"
+## 💡 Why do we care?
+In modern DevOps, everything must be automated, scalable, and reliable. Mastering Docker Fundamentals allows you to build systems that work without human intervention and scale globally.
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Docker Fundamentals.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+## 🛠 Basic Concepts
+- **Automation**: Let the computer do the repetitive work.
+- **Reliability**: If it breaks, it should recover automatically.
+- **Traceability**: You should always know *what* changed, *when*, and *why*.
+
+## 🧠 Best Practices
+- Keep it simple and readable.
+- Always test locally before deploying to production.
+- Document your configurations clearly.

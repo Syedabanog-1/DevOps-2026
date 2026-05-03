@@ -1,23 +1,19 @@
-# Week 14 - Day 1: Dockerfile and Image Building
-## 🎯 Overview
-This week covers **Dockerfile and Image Building** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 14 - Day 1: Dockerfile and Image Building
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Dockerfile and Image Building.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is it?
+A Dockerfile is a step-by-step recipe that tells Docker exactly how to build your container image from scratch.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+**Analogy:** Think of it like **A recipe for baking a cake**.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Dockerfile and Image Building."
-- "Write a bash script that automates a common Dockerfile and Image Building task."
-- "What monitoring metrics should I track for Dockerfile and Image Building in a production system?"
+## 💡 Why do we care?
+In modern DevOps, everything must be automated, scalable, and reliable. Mastering Dockerfile and Image Building allows you to build systems that work without human intervention and scale globally.
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Dockerfile and Image Building.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+## 🛠 Basic Concepts
+- **Automation**: Let the computer do the repetitive work.
+- **Reliability**: If it breaks, it should recover automatically.
+- **Traceability**: You should always know *what* changed, *when*, and *why*.
+
+## 🧠 Best Practices
+- Keep it simple and readable.
+- Always test locally before deploying to production.
+- Document your configurations clearly.

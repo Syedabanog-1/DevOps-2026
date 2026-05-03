@@ -2,77 +2,53 @@
 # ============================================================
 # Week 16 - Day 3 Incident: Container Security and Registry
 # DevOps 2026 Track
-# Scenario: vulnerable-image — diagnose and remediate
+# Scenario: vulnerable-image
 # ============================================================
 set -euo pipefail
-RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
-LAB_DIR="/tmp/devops2026-week16-incident"
-RCA_FILE="${LAB_DIR}/RCA-week16-vulnerable-image.md"
-mkdir -p "${LAB_DIR}"
+RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
+INCIDENT_DIR="/tmp/devops2026-week16-incident"
+mkdir -p "${INCIDENT_DIR}"
 
 print_banner() {
-  echo -e "${RED}${BOLD}"
+  echo -e "${BOLD}${RED}"
   echo "=========================================================="
-  echo "  INCIDENT SIM | Week 16 | vulnerable-image"
+  echo "  INCIDENT SIMULATION | Week 16 | vulnerable-image"
   echo "=========================================================="
   echo -e "${RESET}"
 }
 
 simulate_incident() {
-  echo -e "${RED}[INCIDENT]${RESET} Simulating failure: vulnerable-image"
-  echo "Simulated failure at $(date)" > "${LAB_DIR}/failure.log"
-  echo -e "  Application is down. Alert triggered."
-}
+  echo -e "${CYAN}[1/2]${RESET} Simulating catastrophic failure..."
+  
+  echo "FATAL: vulnerable-image encountered in Container Security and Registry module." > "${INCIDENT_DIR}/error.log"
+  echo -e "${RED}${BOLD}CRASH DETECTED!${RESET}"
+  cat "${INCIDENT_DIR}/error.log"
+  
+  echo -e "\n${CYAN}[2/2]${RESET} Generating Root Cause Analysis (RCA)..."
+  cat << EOF > "${INCIDENT_DIR}/RCA-$(date +%Y%m%d).md"
+# Root Cause Analysis (RCA) - Container Security and Registry
 
-perform_rca() {
-  echo -e "\n${YELLOW}[RCA]${RESET} Investigating root cause..."
-  echo -e "  ${CYAN}[CHECK 1]${RESET} Reviewing logs and system state."
-  echo -e "  ${CYAN}[CHECK 2]${RESET} Identifying the root cause component."
-  echo -e "  Conclusion: Root cause identified for scenario: vulnerable-image"
-}
+## 📅 Date: $(date)
+## 📉 Incident: vulnerable-image
 
-apply_fix() {
-  echo -e "\n${GREEN}[FIX]${RESET} Applying remediation..."
-  echo "Remediation applied at $(date)" >> "${LAB_DIR}/failure.log"
-  echo -e "  ${GREEN}SUCCESS:${RESET} System restored."
-}
+## 🔍 What happened?
+During standard operations of Container Security and Registry, an unexpected issue 'vulnerable-image' caused the pipeline to halt.
 
-generate_rca_doc() {
-  cat > "${RCA_FILE}" <<RCADOC
-# Incident RCA: Container Security and Registry
-## Week 16 Day 3 | DevOps 2026 Track
+## 🛠 How we fixed it
+1. Reviewed the error logs in \`/tmp\`.
+2. Re-applied the configuration using standard DevOps recovery playbooks.
+3. Verified the system was stable using health checks.
 
-**Date:** $(date '+%Y-%m-%d %H:%M:%S')
-**Incident:** vulnerable-image
-**Severity:** High
-**Status:** RESOLVED
+## 🧠 Lesson Learned
+Always monitor Container Security and Registry metrics to proactively catch vulnerable-image before it affects end users.
+EOF
 
-## Incident Summary
-A production failure occurred related to: vulnerable-image.
-This is a simulated incident to train engineers to identify and remediate common Container Security and Registry failures.
-
-## Root Cause
-The failure was triggered by a misconfiguration or a missing dependency in the Container Security and Registry layer.
-
-## Resolution
-Standard remediation steps were applied:
-1. Identified the failure point via log analysis.
-2. Applied the targeted fix.
-3. Verified system recovery.
-
-## Prevention
-- Automate monitoring and alerting for this class of failure.
-- Add this scenario to the runbook and incident response playbook.
-RCADOC
-  echo -e "\n  ${GREEN}✔${RESET} RCA saved: ${RCA_FILE}"
+  echo -e "\n${GREEN}${BOLD}Incident Simulated and Remediated!${RESET}"
+  echo -e "Review your RCA report in: ${BOLD}${INCIDENT_DIR}${RESET}"
 }
 
 main() {
   print_banner
   simulate_incident
-  perform_rca
-  apply_fix
-  generate_rca_doc
-  echo -e "\n${GREEN}${BOLD}  INCIDENT RESOLVED | Week 16 Day 3 — COMPLETE${RESET}"
 }
 main "$@"

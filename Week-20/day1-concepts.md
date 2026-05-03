@@ -1,23 +1,19 @@
-# Week 20 - Day 1: Helm and K8s Incident Response
-## 🎯 Overview
-This week covers **Helm and K8s Incident Response** as part of the DevOps 2026 Job-Ready Track.
+# 📝 Week 20 - Day 1: Helm and K8s Incident Response
 
-## Core Learning Objectives
-1. Understand the fundamental principles behind Helm and K8s Incident Response.
-2. Apply skills hands-on in the Day 2 lab.
-3. Diagnose and resolve real-world failures in the Day 3 incident simulation.
+## 🎯 What is it?
+Helm is a package manager that makes installing complex Kubernetes apps as easy as 'helm install'.
 
-## Key Reference Commands
-Consult the lab script, official docs, and your AI pair programmer (GitHub Copilot / Claude)
-for detailed walkthroughs of every command used this week.
+**Analogy:** Think of it like **An App Store for Kubernetes**.
 
-## AI Integration
-Use the following prompts with Claude or Copilot during this week:
-- "Explain the top 5 production gotchas for Helm and K8s Incident Response."
-- "Write a bash script that automates a common Helm and K8s Incident Response task."
-- "What monitoring metrics should I track for Helm and K8s Incident Response in a production system?"
+## 💡 Why do we care?
+In modern DevOps, everything must be automated, scalable, and reliable. Mastering Helm and K8s Incident Response allows you to build systems that work without human intervention and scale globally.
 
-## 🧠 Key Takeaways
-- Always automate repetitive tasks related to Helm and K8s Incident Response.
-- Document every change with context in commit messages and RCA reports.
-- Treat every incident as a learning opportunity to improve runbooks.
+## 🛠 Basic Concepts
+- **Automation**: Let the computer do the repetitive work.
+- **Reliability**: If it breaks, it should recover automatically.
+- **Traceability**: You should always know *what* changed, *when*, and *why*.
+
+## 🧠 Best Practices
+- Keep it simple and readable.
+- Always test locally before deploying to production.
+- Document your configurations clearly.

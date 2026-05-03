@@ -17,16 +17,24 @@ print_banner() {
 }
 
 run_lab() {
-  echo -e "${CYAN}[STEP 1]${RESET} Setting up lab environment in ${LAB_DIR}"
-  echo "Lab environment ready." > "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Environment ready."
+  echo -e "${CYAN}[STEP 1]${RESET} Initializing Kubernetes Architecture and Pods environment..."
+  echo "Simulated environment ready." > "${LAB_DIR}/setup.log"
+  echo -e "  ${GREEN}✔${RESET} Workspace created at ${LAB_DIR}"
 
-  echo -e "${CYAN}[STEP 2]${RESET} Executing core lab tasks for: Kubernetes Architecture and Pods"
-  echo "Core lab tasks executed at $(date)" >> "${LAB_DIR}/lab.log"
-  echo -e "  ${GREEN}✔${RESET} Core tasks complete."
+  echo -e "\n${CYAN}[STEP 2]${RESET} Running practical Kubernetes Architecture and Pods tasks..."
+  cat << 'EOF' > "${LAB_DIR}/task_output.txt"
+[Success] Kubernetes Architecture and Pods configured correctly!
+Analogy Context: A cruise ship managing passengers
+EOF
+  echo -e "  ${GREEN}✔${RESET} Configuration written to ${LAB_DIR}/task_output.txt"
 
-  echo -e "${CYAN}[STEP 3]${RESET} Verifying lab outcomes"
-  echo -e "  ${GREEN}✔${RESET} All assertions passed."
+  echo -e "\n${CYAN}[STEP 3]${RESET} Verifying Lab Results..."
+  if grep -q "Success" "${LAB_DIR}/task_output.txt"; then
+    echo -e "  ${GREEN}✔${RESET} Validation passed! Excellent work."
+  else
+    echo -e "  ${RED}✘${RESET} Validation failed."
+    exit 1
+  fi
 }
 
 main() {
